@@ -17,6 +17,7 @@ const App = () => {
         <BenefitsSection/>
         <ApprovalsSection/>
         <Youtube/>
+        
         <Category/>
         <Footer/>
     </div>
