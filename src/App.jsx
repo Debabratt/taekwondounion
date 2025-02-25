@@ -12,8 +12,9 @@ import Marque  from './Components/Marque';
 const App = () => {
   return (
     <div>
+      <Mainnav/>
         <TopNav />
-        <Mainnav/>
+        
         <Home/>
         <Marque/>
         <BenefitsSection/>
