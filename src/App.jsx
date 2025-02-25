@@ -8,12 +8,14 @@ import Youtube from './Components/Youtube';
 import Footer from './Components/Footer';
 import BenefitsSection from './Components/BenefitsSection';
 import Category from './Components/Category';
+import Marque  from './Components/Marque';
 const App = () => {
   return (
     <div>
         <TopNav />
         <Mainnav/>
         <Home/>
+        <Marque/>
         <BenefitsSection/>
         <ApprovalsSection/>
         <Youtube/>
