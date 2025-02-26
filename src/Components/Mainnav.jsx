@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Medal, Users, Book, UserCheck, Home, Menu, X } from "lucide-react";
 import React, { useState } from "react";
 
@@ -7,14 +8,31 @@ export default function Mainnav() {
   return (
     <header className="flex w-full h-auto">
       {/* Left Section - 20% width, Blue Background, Fully Rounded */}
-      <div className="w-[20%]  bg-[#052053] flex items-center justify-center p-4 rounded-r-full min-h-[70px]">
-        <img
-          src="/itu3.jpg"
-          alt="SDDI Logo"
-          className="h-auto  md:ml-18 lg:ml-20 xl:ml-40 2xl:ml-56
- w-auto max-w-[50px] max-h-[50px] sm:max-w-[60px] sm:max-h-[60px] md:max-w-[80px] md:max-h-[80px] rounded-full shadow-md object-cover"
-        />
-      </div>
+      <motion.div
+      className="w-[20%] bg-gradient-to-r from-[#FF9933] via-white to-[#138808] flex items-center justify-center p-4 rounded-r-full min-h-[70px] relative overflow-hidden"
+      animate={{
+        backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+      }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      <motion.img
+        src="/itu3.jpg"
+        alt="SDDI Logo"
+        className="h-auto w-auto max-w-[50px] max-h-[50px] sm:max-w-[60px] sm:max-h-[60px] md:max-w-[80px] md:max-h-[80px] rounded-full shadow-md object-cover"
+        animate={{
+          y: [0, -5, 0],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+    </motion.div>
 
       {/* Right Section - Navigation */}
       <div className="w-[80%] bg-white flex relative items-center px-4 md:px-6 lg:px-12 py-4">
