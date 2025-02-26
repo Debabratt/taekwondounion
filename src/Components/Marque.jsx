@@ -17,17 +17,17 @@ function Marque() {
       data-scroll 
       data-scroll-section 
       data-scroll-speed=".1" 
-      className="w-full max-w-full py-2 bg-[#F3F4F6]"
+      className="w-full max-w-full py-2 bg-[#ffffff]"
     >
-      <div className="border-t-2 py-5 border-b-2 border-slate-50 flex overflow-hidden whitespace-nowrap px-4 sm:px-6">
+      <div className=" py-2   flex overflow-hidden whitespace-nowrap  sm:px-6">
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 120 }}
           className="flex items-center"
         >
           {Array(10).fill(brandImages).flat().map((src, index) => (
-            <img key={index} src={src} alt={`${index + 1}`} className="h-12  gap-20 md:h-16 mx-4" />
+            <img key={index} src={src} alt={`${index + 1}`} className="h-18   md:h-20 mx-15" />
           ))}
         </motion.div>
       </div>
