@@ -48,7 +48,7 @@ export default function Mainnav() {
 
             {/* OTHERS Section - Fixed Dropdown */}
             <div
-  className="relative flex items-center gap-2 transition duration-300 hover:scale-105 cursor-pointer"
+  className="relative flex items-center gap-2 transition duration-300  cursor-pointer"
   onMouseEnter={() => setOthersOpen(true)}
   onMouseLeave={() => setOthersOpen(false)}
 >
