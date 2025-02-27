@@ -61,7 +61,7 @@ export default function Mainnav() {
 
   {/* Animated Dropdown */}
   <div
-    className={`absolute top-8 md:mt-12 left-0 w-40 bg-white shadow-md rounded-md py-2 z-20 transition-all duration-300 origin-top ${
+    className={`absolute top-8  left-0 w-40 bg-white shadow-md rounded-md py-2 z-20 transition-all duration-300 origin-top ${
       othersOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
     }`}
   >
