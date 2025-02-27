@@ -5,7 +5,7 @@ function Marque() {
   const brandImages = [
   
     "/spel.png",
-    "/KLOGO.png",
+    "/KUKKIWON LOGO.png",
     "/taeko.png",
     "/nitiayog.png",
     "FIT INDIA.png",
