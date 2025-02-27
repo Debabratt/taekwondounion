@@ -38,7 +38,7 @@ function TopNav() {
       data-scroll 
       data-scroll-section 
       data-scroll-speed="4" 
-      className='w-full max-w-full bg-gradient-to-r from-[#FF9933] via-white to-[#138808]'
+      className='w-full max-w-full  bg-gradient-to-r from-[#FF9933] via-white to-[#138808]'
     >
       <div className='flex overflow-hidden whitespace-nowrap px-4 sm:px-6'>
         <motion.div
