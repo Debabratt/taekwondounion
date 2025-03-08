@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Link, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -133,55 +133,21 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="bg-[#0B2545] text-white text-sm py-6">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between border-b border-gray-600 pb-4">
-            <img
-              src="/india-gov-logo.png"
-              alt="India Gov Logo"
-              className="h-8"
-            />
-            <p className="text-center md:text-right mt-2 md:mt-0">
-              Last reviewed and updated on: <strong>19-February-2025</strong>
-              <br />
-              Best viewed in 1024 * 768 resolution with the latest versions of
-              Chrome, Firefox, Safari, and Edge.
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center justify-between mt-4">
-            <div className="flex items-center gap-4">
-              <img
-                src="/invest-india-logo.png"
-                alt="Invest India"
-                className="h-8"
-              />
-              <p className="text-center md:text-left">
-                उद्योग संवर्धन और आंतरिक व्यापार विभाग
-                <br />
-                <strong>
-                  DEPARTMENT FOR PROMOTION OF INDUSTRY AND INTERNAL TRADE
-                </strong>
-              </p>
-            </div>
-
-            <p className="text-center md:text-right mt-2 md:mt-0 text-gray-400">
-              © 2025 This site is designed, developed, and owned by Invest
-              India,
-              <br />
-              Department for Promotion of Industry and Internal Trade, Ministry
-              of Commerce and Industry, Government of India.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Floating Help Button */}
-      <div className="fixed bottom-6 right-6">
-        <button className="bg-yellow-500 w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
-          <span className="text-white text-2xl">?</span>
-        </button>
-      </div>
+     {/* Bottom Section */}
+<div className="border-t border-gray-600 bg-[#0B2545] pt-4 pb-6">
+  <p className="text-center text-sm text-gray-400">
+    &copy;  All Rights Reserved.{" "}
+    <a
+      href="https://websyonline.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:underline text-gray-300"
+    >
+      Design and Delivery by WebsyOnline
+    </a>
+  </p>
+</div>
+      
     </footer>
   );
 };
