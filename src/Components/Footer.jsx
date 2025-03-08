@@ -1,7 +1,53 @@
-import React ,{ useState, useEffect} from "react";
-import { Facebook, Instagram, Link, Twitter, Youtube } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import {
+  Axe,
+  ClipboardCheck,
+  Facebook,
+  Footprints,
+  Instagram,
+  Link,
+  ShieldCheck,
+  Sword,
+  Twitter,
+  Youtube,
+} from "lucide-react";
+import { GiBoxingGlove } from "react-icons/gi";
 const allStates = [
-  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman & Nicobar Islands", "Chandigarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Lakshadweep", "Puducherry"
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Andaman & Nicobar Islands",
+  "Chandigarh",
+  "Dadra & Nagar Haveli",
+  "Daman & Diu",
+  "Delhi",
+  "Lakshadweep",
+  "Puducherry",
 ];
 const Footer = () => {
   const [visibleStates, setVisibleStates] = useState(allStates.slice(0, 6));
@@ -43,8 +89,11 @@ const Footer = () => {
           <div>
             <h3 className="text-green-400 font-semibold">Visit Us</h3>
             <ul className="mt-2 text-[#D2E3FB] font-semibold space-y-2">
-
-              <li> Address : 1st Floor, HH-18, Civil Township, Rourkela, Odisha 769004</li>
+              <li>
+                {" "}
+                Address : 1st Floor, HH-18, Civil Township, Rourkela, Odisha
+                769004
+              </li>
             </ul>
           </div>
 
@@ -57,7 +106,7 @@ const Footer = () => {
             />
             <h3 className="text-green-400 font-semibold">Call us at</h3>
             <p className="text-xl  sm:text-2xl text-[#D2E3FB] font-bold">
-           <a href="tel:+91 95839 21122">+91 95839 21122</a> 
+              <a href="tel:+91 95839 21122">+91 95839 21122</a>
             </p>
             <p className="text-[#D2E3FB] font-semibold">
               [Mon - Sat, 9am - 6pm]
@@ -95,23 +144,24 @@ const Footer = () => {
           {/* Ministries Section */}
           <div>
             <h3 className="text-green-400 font-semibold text-lg text-center md:text-left">
-              What We are 
+              What We are
               <span className="text-[#D2E3FB]"> Delivering</span>
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
+            <div className="grid grid-cols-2  md:grid-cols-3 gap-4 mt-5">
               {[
-                "High Level Kicks",
-                "Kyorugi",
-                "Poomsae",
-                "Self-Defence",
-                "Sparring",
-                "Weapons Training",
-              ].map((ministry, index) => (
+                { title: "High Level Kicks", icon: <Footprints size={24} /> }, // 🥋
+                { title: "Kyorugi", icon: <GiBoxingGlove size={24} /> }, // 🥊
+                { title: "Poomsae", icon: <ClipboardCheck size={24} /> }, // 🎭
+                { title: "Self-Defence", icon: <ShieldCheck size={24} /> }, // 🛡
+                { title: "Sparring", icon: <Sword size={24} /> }, // ⚔️
+                { title: "Weapons Training", icon: <Axe size={24} /> }, // 🪓
+              ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-[#11314F] opacity-70 p-4 rounded-lg flex items-center justify-center text-white"
+                  className="bg-[#11314F] opacity-70 p-4  rounded-lg flex flex-col items-center justify-center text-white"
                 >
-                  <p>{ministry}</p>
+                  {item.icon}
+                  <p className="mt-2">{item.title}</p>
                 </div>
               ))}
             </div>
@@ -138,21 +188,20 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-     {/* Bottom Section */}
-<div className="border-t border-gray-600 bg-[#0B2545] pt-4 pb-6">
-  <p className="text-center text-sm text-gray-400">
-    &copy;  All Rights Reserved.{" "}
-    <a
-      href="https://websyonline.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:underline text-gray-300"
-    >
-      Design and Delivery by WebsyOnline
-    </a>
-  </p>
-</div>
-      
+      {/* Bottom Section */}
+      <div className="border-t border-gray-600 bg-[#0B2545] pt-4 pb-6">
+        <p className="text-center text-sm text-gray-400">
+          &copy; All Rights Reserved.{" "}
+          <a
+            href="https://websyonline.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline text-gray-300"
+          >
+            Design and Delivery by WebsyOnline
+          </a>
+        </p>
+      </div>
     </footer>
   );
 };
