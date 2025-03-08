@@ -19,7 +19,7 @@ const textVariants = {
 
 const Home = () => {
   return (
-    <div className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-[600px] flex flex-col md:flex-row items-center justify-center overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
@@ -34,51 +34,50 @@ const Home = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#0f2658] to-[#05183d] opacity-90"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col md:flex-row w-full  mx-auto items-center">
+      <div className="relative z-10 flex flex-col w-full mx-auto items-center md:flex-row md:justify-between">
         {/* Left Section - Animated Text */}
         <motion.div
-  variants={textContainerVariants}
-  initial="hidden"
-  animate="visible"
-  className="w-full md:w-[38%] text-white text-center md:text-left ml-20"
->
-  <motion.h1
-    className="text-3xl md:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-green-500"
-    variants={textVariants}
-  >
-    Welcome to  
-  </motion.h1>
+          variants={textContainerVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full md:w-[38%] text-white text-center md:text-left px-6 md:ml-20"
+        >
+          <motion.h1
+            className="text-3xl mt-10 md:mt-0  md:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-green-500"
+            variants={textVariants}
+          >
+            Welcome to  
+          </motion.h1>
 
-  <motion.h2
-    className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-green-500"
-    variants={textVariants}
-  >
-    Indian Taekwondo Union
-  </motion.h2>
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-green-500"
+            variants={textVariants}
+          >
+            Indian Taekwondo Union
+          </motion.h2>
 
-  <motion.p
-    className="text-lg text-gray-300 mb-6"
-    variants={textVariants}
-  >
-    Forge your spirit. Master your strength. Embody the discipline of a true warrior. Rise with resilience, strike with precision, and embrace the journey of excellence.
-  </motion.p>
+          <motion.p
+            className="text-lg mt-5 md:mt-0 text-gray-300 mb-6"
+            variants={textVariants}
+          >
+            Forge your spirit. Master your strength. Embody the discipline of a true warrior. Rise with resilience, strike with precision, and embrace the journey of excellence.
+          </motion.p>
 
-  <motion.button
-    className="px-6 py-3 bg-blue-600 hover:bg-blue-800 text-white text-lg font-medium rounded-md shadow-md transition-transform transform hover:scale-105"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-   Know More
-  </motion.button>
-</motion.div>
-
+          <motion.button
+            className="px-6 py-3 mt-10 md:mt-0 bg-blue-600 hover:bg-blue-800 text-white text-lg font-medium rounded-md shadow-md transition-transform transform hover:scale-105"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Know More
+          </motion.button>
+        </motion.div>
 
         {/* Right Section - Carousel */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="w-full md:w-[55%] mr-10 lg:mr-20"
+          className="w-full md:w-[55%] mt-10 px-2 rounded-4xl md:mt-0 md:mr-10 lg:mr-20"
         >
           <Carousel
             showThumbs={false}
