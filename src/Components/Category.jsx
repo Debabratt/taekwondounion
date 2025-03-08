@@ -9,17 +9,17 @@ import {
   GiShield,
   GiBoxingGlove,
   GiSwordSlice,
-  GiMeditation,
+ 
 } from "react-icons/gi";
 
 const categories = [
-  { name: "Kicks", icon: <GiHighKick size={40} /> },
-  { name: "Punches", icon: <GiPunchBlast size={40} /> },
-  { name: "Competitions", icon: <GiPodium size={40} /> },
-  { name: "Defense", icon: <GiShield size={40} /> },
+  { name: "High Level Kicks", icon: <GiHighKick size={40} /> },
+  { name: "Kyorugi", icon: <GiPunchBlast size={40} /> },
+  { name: "Poomsae", icon: <GiPodium size={40} /> },
+  { name: "Self-Defence", icon: <GiShield size={40} /> },
   { name: "Sparring", icon: <GiBoxingGlove size={40} /> },
   { name: "Weapons Training", icon: <GiSwordSlice size={40} /> },
-  { name: "Meditation", icon: <GiMeditation size={40} /> },
+ 
 ];
 
 const slides = [
@@ -46,13 +46,13 @@ export default function Category() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:min-h-full justify-between p-6 gap-8">
+    <div className="flex flex-col lg:flex-row lg:min-h-screen justify-between p-6 gap-8">
       {/* Left Category Section */}
       <div className="w-full lg:w-2/5 p-6 lg:py-30 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-center text-black mb-6">
           Taekwondo Categories
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
           {categories.map((item, index) => (
             <div
               key={index}

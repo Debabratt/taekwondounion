@@ -68,7 +68,7 @@ const Home = () => {
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
-    Join Now
+   Know More
   </motion.button>
 </motion.div>
 

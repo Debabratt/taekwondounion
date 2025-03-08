@@ -1,4 +1,4 @@
-import { Medal, Users, Book, UserCheck, Home, Menu, X, MoreHorizontal } from "lucide-react";
+import {   Home, Menu, X, MoreHorizontal, Shield, Info,   Phone, Activity } from "lucide-react";
 import React, { useState } from "react";
 
 export default function Mainnav() {
@@ -25,13 +25,18 @@ export default function Mainnav() {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex gap-10 items-center w-full justify-center">
+          <nav className="hidden lg:flex gap-8 lg:ml-30  items-center w-full justify-center">
             {[
-              { icon: <Home size={20} className="text-white" />, title: "HOME" },
-              { icon: <Medal size={20} className="text-white" />, title: "TOURNAMENTS", subtitle: "Upcoming events" },
-              { icon: <Users size={20} className="text-white" />, title: "TRAINING & COACHING", subtitle: "Professional coaching" },
-              { icon: <Book size={20} className="text-white" />, title: "RULEBOOK", subtitle: "Official guidelines" },
-              { icon: <UserCheck size={20} className="text-white" />, title: "MEMBERSHIP" },
+              
+
+  { icon: <Home size={20} className="text-white" />, title: "HOME", subtitle: "Welcome to ITU" },
+  { icon: <Info size={20} className="text-white" />, title: "ABOUT", subtitle: "Learn about ITU" },
+  { icon: <Shield size={20} className="text-white" />, title: "STATE TAEKWONDO UNION", subtitle: "State-level representation" },
+
+
+  { icon: <Phone size={20} className="text-white" />, title: "CONTACT US", subtitle: "Get in touch" },
+  { icon: <Activity size={20} className="text-white" />, title: "SELF DEFENCE", subtitle: "Training programs" },
+
             ].map((item, index) => (
               <div key={index} className="relative flex flex-col items-center cursor-pointer">
                 <div className="flex items-center gap-2 transition duration-300">
@@ -65,11 +70,10 @@ export default function Mainnav() {
       othersOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
     }`}
   >
-    <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Affiliated Unit</div>
-    <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Download Forms</div>
-    <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">About ITU</div>
+
+    <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Upcoming News</div>
     <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Gallery</div>
-    <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Contact</div>
+    <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Players</div>
   </div>
 </div>
 
