@@ -10,7 +10,7 @@ const Youtube = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row bg-gray-100 min-h-screen  gap-4 md:gap-6">
+    <div className="flex flex-col md:flex-row bg-gray-100 min-h-screen ">
       {/* Left Section */}
       <div className="w-full md:w-2/3 px-4 md:px-6 lg:px-12 flex flex-col justify-center text-center md:text-left">
         <h2 className="text-green-500 font-bold text-lg">Certified</h2>
@@ -23,7 +23,7 @@ const Youtube = () => {
           {[
 
   { name: "MSME", desc: "Facilitating small and medium enterprises in sports infrastructure development.", border: "border-orange-500" },
-  { name: "SPEEL-SC", desc: "Empowering athletes through skill development and coaching certifications.", border: "border-yellow-500" },
+  { name: "SPEEL-SC", desc: "Empowering athletes through skill development and coaching certifications.", border: "border-orange-500" },
   { name: "NITI AYOG", desc: "Strategic planning and policy support for national sports development.", border: "border-orange-500" },
   { name: "FIT-INDIA", desc: "Promoting fitness and sports participation across the nation.", border: "border-orange-500" }
 
@@ -48,7 +48,7 @@ const Youtube = () => {
       </div>
 
       {/* Right Section - India Map */}
-      <div className="w-full md:w-[40%] flex items-center justify-center">
+      <div className="w-full md:w-1/2 flex items-center justify-center mt-10 ">
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex items-center justify-center">
           <IndiaMapSVG onStateClick={handleStateClick} className="w-full h-auto object-contain" />
         </div>

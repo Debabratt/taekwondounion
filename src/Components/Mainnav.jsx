@@ -9,7 +9,7 @@ export default function Mainnav() {
     <>
       <header className="flex w-full h-auto relative z-10">
         {/* Left Section */}
-        <div className="w-[20%] bg-[#0B2545] flex items-center justify-center p-2 min-h-[70px] relative overflow-hidden">
+        <div className="w-[32%] md:w-[20%] bg-[#0B2545] flex items-center justify-center p-2 min-h-[70px] relative overflow-hidden">
           <img
             src="/ITU LOGO.png"
             alt="SDDI Logo"
@@ -18,7 +18,7 @@ export default function Mainnav() {
         </div>
 
         {/* Right Section - Navigation */}
-        <div className="w-[80%] bg-[#0B2545] flex relative items-center px-4 md:px-6 lg:px-12 py-4">
+        <div className="w-[70%] md:w-[80%] bg-[#0B2545] flex relative items-center px-4 md:px-6 lg:px-12 py-4">
           {/* Mobile Menu Button */}
           <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-gray-100 ml-auto">
             {isOpen ? <X size={30} /> : <Menu size={30} />}

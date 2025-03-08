@@ -682,14 +682,16 @@ const IndiaMapSVG = () => {
   };
 
   return (
-    <div  style={{ position: "relative", textAlign: "center" }}>
-       <svg
-       className="mt-30 "
-        width="500"
-       height="500"
-       viewBox="0 0 1000 1000"
-       xmlns="http://www.w3.org/2000/svg"
-    >
+    <div style={{ position: "relative", textAlign: "center" }}>
+  <svg
+    className="w-full h-auto "
+    width={500}
+    height={500}
+    viewBox="0 0 1000 1000"
+    preserveAspectRatio="xMinYMin meet"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+
         <path
           id="IN-AN"
           
