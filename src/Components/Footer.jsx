@@ -1,7 +1,19 @@
-import React from "react";
+import React ,{ useState, useEffect} from "react";
 import { Facebook, Instagram, Link, Twitter, Youtube } from "lucide-react";
-
+const allStates = [
+  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman & Nicobar Islands", "Chandigarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Lakshadweep", "Puducherry"
+];
 const Footer = () => {
+  const [visibleStates, setVisibleStates] = useState(allStates.slice(0, 6));
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 6) % allStates.length);
+      setVisibleStates(allStates.slice(index, index + 6));
+    }, 2000); // Change states every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [index]);
   return (
     <footer className="relative">
       <div className="bg-[url('/earth1.jpg')] bg-blue-900 bg-opacity-90 bg-cover bg-center text-white py-10 px-5">
@@ -112,14 +124,7 @@ const Footer = () => {
               <span className="text-[#D2E3FB]">live with Us</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
-              {[
-                "Government of Tripura",
-                "Government of Uttar Pradesh",
-                "Government of Maharashtra",
-                "Government of Uttarakhand",
-                "Government of Jharkhand",
-                "Government of Andaman & Nicobar Islands",
-              ].map((state, index) => (
+              {visibleStates.map((state, index) => (
                 <div
                   key={index}
                   className="bg-[#11314F] opacity-70 p-4 rounded-lg flex items-center justify-center text-white"
