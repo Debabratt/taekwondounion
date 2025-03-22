@@ -92,7 +92,7 @@ const Home = () => {
             interval={3000}
             stopOnHover={false}
             swipeable={true}
-            className="rounded-2xl overflow-hidden shadow-lg"
+            className="rounded-2xl overflow-hidden "
           >
             {["/c1.webp", "/c2.webp", "/sldr1.webp", "/sldr2.webp"].map(
               (src, index) => (
