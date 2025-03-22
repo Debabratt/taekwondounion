@@ -685,8 +685,8 @@ const IndiaMapSVG = (className) => {
     <div style={{ position: "relative", textAlign: "center" }}>
   <svg
       className={className}
-      width={window.innerWidth < 768 ? 500 : 600} // Adjust size for mobile
-      height={window.innerWidth < 768 ? 500 : 600} // Adjust size for mobile
+      width={window.innerWidth < 768 ? 600 : 600} // Adjust size for mobile
+      height={window.innerWidth < 768 ? 600 : 600} // Adjust size for mobile
       viewBox="0 0 1000 1000"
       preserveAspectRatio="xMinYMin meet"
       xmlns="http://www.w3.org/2000/svg"
@@ -1327,7 +1327,7 @@ const IndiaMapSVG = (className) => {
       {/* Selected state name */}
       {selectedState && (
         <div
-          style={{ marginTop: "10px", fontSize: "18px", fontWeight: "bold" }}
+          style={{ marginTop: "10px", fontSize: "18px", fontWeight: "bold" ,marginLeft:"-20px"}}
         >
           Selected State: {selectedState}
         </div>

@@ -10,9 +10,7 @@ const Youtube = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-r from-orange-100 to-white">
-
-
+    <div className="flex flex-col md:flex-row bg-gradient-to-r from-orange-100 to-white min-h-screen overflow-x-hidden">
       {/* Left Section */}
       <div className="w-full md:w-2/3 px-4 md:px-6 lg:px-12 flex flex-col justify-center text-center md:text-left">
         <h2 className="text-orange-500 font-bold text-lg">Certified</h2>
@@ -49,7 +47,7 @@ const Youtube = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className={`bg-white p-4 rounded-lg shadow-md border-l-4 ${item.border} hover:bg-green-400 transition`}
+              className={`bg-white p-4 rounded-lg shadow-md border-l-4 ${item.border} hover:bg-orange-50 transition`}
               onMouseEnter={() => setSelectedState(item.name)}
               onMouseLeave={() => setSelectedState("National Taekwondo Championship")}
             >
@@ -69,8 +67,8 @@ const Youtube = () => {
       </div>
 
       {/* Right Section - India Map */}
-      <div className="w-full ml-20 px-20 md:w-1/2 flex items-center justify-center mt-10 md:mt-0 ">
-        <div className="w-full max-w-[500px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] flex items-center justify-center">
+      <div className="w-full px-27 ml-29  md:w-1/2 flex items-center justify-center mt-10 md:mt-0 ">
+        <div className="w-full  max-w-full sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] flex items-center justify-center">
           <IndiaMapSVG
             onStateClick={handleStateClick}
             className="w-full h-auto"
