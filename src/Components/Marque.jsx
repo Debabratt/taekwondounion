@@ -8,7 +8,9 @@ function Marque() {
     "/KUKKIWON LOGO.png",
     "/taeko.png",
     "/nitiayog.png",
-    "FIT INDIA.png",
+    "/FIT INDIA.png",
+    "/SKILL INDIA.png",
+    "/G20.png",
     "/KCC.png",
   ];
 

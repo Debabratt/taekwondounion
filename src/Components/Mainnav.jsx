@@ -40,7 +40,7 @@ export default function Mainnav() {
                     <div className="text-sm font-semibold text-white relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
                       {item.title}
                     </div>
-                    <div className="text-xs text-gray-400 min-h-[16px]">{item.subtitle}</div>
+                    <div className="text-xs py-1 text-gray-400 min-h-[16px]">{item.subtitle}</div>
                   </div>
                 </div>
               </div>

@@ -46,29 +46,30 @@ export default function Category() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:min-h-screen justify-between p-6 gap-8">
+    <div className="flex flex-col h-auto lg:flex-row lg:min-h-screen justify-between p-6 gap-8">
       {/* Left Category Section */}
-      <div className="w-full lg:w-2/5 p-6 lg:py-30 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-center text-black mb-6">
-          Taekwondo Categories
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
-          {categories.map((item, index) => (
-            <div
-              key={index}
-              className={`flex flex-col items-center bg-white p-4 rounded-lg shadow-md cursor-pointer transition duration-300 ${
-                selectedCategory === item.name ? "bg-blue-200" : ""
-              }`}
-              onClick={() => setSelectedCategory(item.name)}
-            >
-              <span className="text-blue-500">{item.icon}</span>
-              <p className="mt-2 text-sm sm:text-base font-semibold">
-                {item.name}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="w-full lg:w-1/3 p-6 lg:py-30 rounded-lg">
+  <h2 className="text-2xl font-bold text-center text-black mb-6">
+    Taekwondo Categories
+  </h2>
+  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 ">
+    {categories.map((item, index) => (
+      <div
+        key={index}
+        className={`flex flex-col items-center bg-white p-3 rounded-lg shadow-md cursor-pointer transition duration-300 ${
+          selectedCategory === item.name ? "bg-blue-200" : ""
+        }`}
+        onClick={() => setSelectedCategory(item.name)}
+      >
+        <span className="text-blue-500">{item.icon}</span>
+        <p className="mt-2 text-sm sm:text-base font-semibold">
+          {item.name}
+        </p>
       </div>
+    ))}
+  </div>
+</div>
+
 
       {/* Right Carousel Section */}
       <div className="w-full lg:w-3/5 lg:py-30">
@@ -77,7 +78,7 @@ export default function Category() {
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={3000}
-          showDots={true}
+          showDots={false}
           arrows={true}
           containerClass="carousel-container"
         >
