@@ -25,19 +25,23 @@ const ApprovalsSection = () => {
       <div className="relative flex flex-col md:flex-row items-center md:items-start">
         {/* Left Section - Blue Box with Right Skew */}
         <div className="relative w-full md:w-1/2 mt-10">
-          <div className="bg-[#193A6C] h-auto md:h-[400px] text-white p-6 md:p-12 rounded-lg z-10 transform md:skew-x-[-10deg] origin-right">
-           
-            <h2 className="text-2xl md:text-3xl font-bold my-4 transform md:-skew-x-[10deg]">
-              Our Achievements 
-            </h2>
-            <p className="text-gray-200 text-base md:text-sm mr-30 leading-relaxed transform ">
-  Our journey in Taekwondo is a testament to dedication, discipline, and excellence. Over the years, we have proudly secured top honors in national championships, represented our country on international platforms, and nurtured world-class athletes. From producing Kukkiwon-certified black belts to organizing award-winning tournaments, our achievements reflect our unwavering commitment to advancing Taekwondo as a sport and a way of life.
-</p>
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg mt-4 transition transform md:-skew-x-[10deg]">
-              VIEW OUR ACHIEVEMENTS
-            </button>
-          </div>
-        </div>
+  <div className="bg-[#193A6C] h-auto md:h-[400px] text-white p-6 md:p-12 rounded-lg z-10 transform md:skew-x-[-10deg] origin-right">
+    {/* Heading */}
+    <h2 className="text-2xl md:text-3xl font-bold mb-4 md:my-4 transform md:-skew-x-[10deg]">
+      Our Achievements
+    </h2>
+
+    {/* Paragraph */}
+    <p className="text-gray-200 text-sm md:text-base leading-relaxed transform md:-skew-x-[10deg]">
+      Our journey in Taekwondo is a testament to dedication, discipline, and excellence. Over the years, we have proudly secured top honors in national championships, represented our country on international platforms, and nurtured world-class athletes. From producing Kukkiwon-certified black belts to organizing award-winning tournaments, our achievements reflect our unwavering commitment to advancing Taekwondo as a sport and a way of life.
+    </p>
+
+    {/* Button */}
+    <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg mt-6 md:mt-4 transition transform md:-skew-x-[10deg]">
+      VIEW OUR ACHIEVEMENTS
+    </button>
+  </div>
+</div>
 
         {/* Right Section - Achievements List */}
         <div className="relative md:absolute lg:mr-10 md:top-10 md:right-10 w-full md:w-1/2 mt-8 md:mt-0 grid grid-cols-1 sm:grid-cols-2 gap-6">

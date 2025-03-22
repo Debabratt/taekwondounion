@@ -46,7 +46,7 @@ export default function Category() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <div className="flex flex-col h-auto lg:flex-row lg:min-h-screen justify-between p-6 gap-8">
+    <div className="flex flex-col h-auto lg:flex-row lg:min-h-auto justify-between p-6 gap-8">
       {/* Left Category Section */}
       <div className="w-full lg:w-1/3 p-6 lg:py-30 rounded-lg">
   <h2 className="text-2xl font-bold text-center text-black mb-6">
