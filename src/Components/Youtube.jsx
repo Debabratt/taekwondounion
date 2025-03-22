@@ -69,7 +69,7 @@ const Youtube = () => {
       </div>
 
       {/* Right Section - India Map */}
-      <div className="w-full md:w-1/2 flex items-center justify-center mt-10 md:mt-0 ">
+      <div className="w-full ml-20 px-20 md:w-1/2 flex items-center justify-center mt-10 md:mt-0 ">
         <div className="w-full max-w-[500px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] flex items-center justify-center">
           <IndiaMapSVG
             onStateClick={handleStateClick}
