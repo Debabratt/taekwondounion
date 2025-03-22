@@ -669,7 +669,7 @@
 
 import React, { useState } from "react";
 
-const IndiaMapSVG = () => {
+const IndiaMapSVG = (className) => {
   const [selectedState, setSelectedState] = useState(null);
   const [hoveredState, setHoveredState] = useState(null);
 
@@ -684,13 +684,14 @@ const IndiaMapSVG = () => {
   return (
     <div style={{ position: "relative", textAlign: "center" }}>
   <svg
-    className="w-full h-auto "
-    width={500}
-    height={500}
-    viewBox="0 0 1000 1000"
-    preserveAspectRatio="xMinYMin meet"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+      className={className}
+      width={window.innerWidth < 768 ? 500 : 600} // Adjust size for mobile
+      height={window.innerWidth < 768 ? 500 : 600} // Adjust size for mobile
+      viewBox="0 0 1000 1000"
+      preserveAspectRatio="xMinYMin meet"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
 
         <path
           id="IN-AN"
