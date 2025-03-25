@@ -9,17 +9,17 @@ export default function Mainnav() {
   const [loginType, setLoginType] = useState(null); // 'admin', 'associate' or 'player'
 
   // Animation variants
-  const navVariants = {
-    hidden: { y: -100 },
-    visible: { 
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 10,
-        stiffness: 100
-      }
-    }
-  };
+  // const navVariants = {
+  //   hidden: { y: -100 },
+  //   visible: { 
+  //     y: 0,
+  //     transition: {
+  //       type: "spring",
+  //       damping: 10,
+  //       stiffness: 100
+  //     }
+  //   }
+  // };
 
   const menuItemVariants = {
     open: {
@@ -67,7 +67,7 @@ export default function Mainnav() {
         className="fixed top-0 left-0 w-full h-auto z-50 bg-[#0B2545] shadow-lg"
         initial="hidden"
         animate="visible"
-        variants={navVariants}
+        // variants={navVariants}
       >
         <div className="flex w-full">
           {/* Left Section */}
@@ -167,17 +167,18 @@ export default function Mainnav() {
 
               {/* Login Button */}
               <motion.button 
-                onClick={() => {
-                  setIsLoginModalOpen(true);
-                  setLoginType(null);
-                }}
-                className="ml-4 px-4 py-2 bg-white text-[#0B2545] rounded-md font-medium hover:bg-gray-100 transition duration-300 flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Lock size={18} />
-                Login
-              </motion.button>
+  onClick={() => {
+    setIsLoginModalOpen(true);
+    setLoginType(null);
+  }}
+  className="ml-2 px-3 py-2 bg-white text-[#0B2545] rounded font-medium text-xs hover:bg-gray-100 transition duration-300 flex items-center gap-1"
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Lock size={14} />
+  Login
+</motion.button>
+
             </nav>
           </div>
         </div>
@@ -340,66 +341,66 @@ export default function Mainnav() {
 
       {/* Mobile Navigation - Fullscreen Overlay Menu */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 bg-[#0B2545] z-40 flex flex-col items-center justify-center pt-20 pb-10 px-4"
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+  {isOpen && (
+    <motion.div
+      className="fixed inset-0 mt-[50px] bg-[#0B2545] z-40 flex flex-col items-center justify-start pt-10 pb-10 px-4 h-[calc(100vh-30px)]"
+      initial={{ opacity: 0, x: "100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: "100%" }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+    >
+      {/* Close Button */}
+      <button
+        onClick={() => setIsOpen(false)}
+        className="absolute top-5 right-5 text-white"
+        aria-label="Close menu"
+      >
+        <X size={30} />
+      </button>
+
+      {/* Mobile Menu Items */}
+      <nav className="flex flex-col gap-4 w-full max-w-md mt-4">
+        {[
+          { icon: <Home size={20} />, title: "HOME" },
+          { icon: <Info size={20} />, title: "ABOUT" },
+          { icon: <Shield size={20} />, title: "STATE TAEKWONDO UNION" },
+          { icon: <Phone size={20} />, title: "CONTACT US" },
+          { icon: <Activity size={20} />, title: "SELF DEFENCE" },
+          { icon: <Newspaper size={20} />, title: "UPCOMING NEWS" },
+          { icon: <Image size={20} />, title: "GALLERY" },
+          { icon: <Users size={20} />, title: "PLAYERS" },
+        ].map((item, index) => (
+          <motion.div 
+            key={index} 
+            className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-[#13315C] transition-colors"
+            variants={menuItemVariants}
+            custom={index}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-5 right-5 text-white"
-              aria-label="Close menu"
-            >
-              <X size={30} />
-            </button>
-
-            {/* Mobile Menu Items */}
-            <nav className="flex flex-col gap-6 w-full max-w-md">
-              {[
-                { icon: <Home size={24} />, title: "HOME" },
-                { icon: <Info size={24} />, title: "ABOUT" },
-                { icon: <Shield size={24} />, title: "STATE TAEKWONDO UNION" },
-                { icon: <Phone size={24} />, title: "CONTACT US" },
-                { icon: <Activity size={24} />, title: "SELF DEFENCE" },
-                { icon: <Newspaper size={24} />, title: "UPCOMING NEWS" },
-                { icon: <Image size={24} />, title: "GALLERY" },
-                { icon: <Users size={24} />, title: "PLAYERS" },
-              ].map((item, index) => (
-                <motion.div 
-                  key={index} 
-                  className="flex items-center gap-4 cursor-pointer p-3 rounded-lg hover:bg-[#13315C] transition-colors"
-                  variants={menuItemVariants}
-                  custom={index}
-                >
-                  <div className="text-white">
-                    {item.icon}
-                  </div>
-                  <span className="text-white text-lg font-medium">{item.title}</span>
-                </motion.div>
-              ))}
-
-              {/* Mobile Login Button */}
-              <motion.button 
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsLoginModalOpen(true);
-                  setLoginType(null);
-                }}
-                className="mt-8 px-6 py-3 bg-white text-[#0B2545] rounded-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center gap-2"
-                variants={menuItemVariants}
-                custom={8}
-              >
-                <Lock size={20} />
-                <span className="font-semibold">Login</span>
-              </motion.button>
-            </nav>
+            <div className="text-white">
+              {item.icon}
+            </div>
+            <span className="text-white text-base font-medium">{item.title}</span>
           </motion.div>
-        )}
-      </AnimatePresence>
+        ))}
+
+        {/* Mobile Login Button */}
+        <motion.button 
+          onClick={() => {
+            setIsOpen(false);
+            setIsLoginModalOpen(true);
+            setLoginType(null);
+          }}
+          className="mt-6 px-5 py-2 bg-white text-[#0B2545] rounded-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center gap-2"
+          variants={menuItemVariants}
+          custom={8}
+        >
+          <Lock size={18} />
+          <span className="font-semibold">Login</span>
+        </motion.button>
+      </nav>
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* Add padding to content to account for fixed navbar */}
       <div className="pt-[90px]"></div>

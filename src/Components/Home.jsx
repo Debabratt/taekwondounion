@@ -66,12 +66,13 @@ const Home = () => {
           </motion.p>
 
           <motion.button
-            className="px-4 py-2 md:px-6 md:py-3 bg-blue-600 hover:bg-blue-800 text-white text-sm md:text-lg font-medium rounded-md shadow-md transition-transform transform hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Know More
-          </motion.button>
+  className="px-2 py-1 md:px-3 md:py-2 bg-blue-600 hover:bg-blue-800 text-white text-xs md:text-sm font-medium rounded shadow transition-transform transform hover:scale-105"
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.95 }}
+>
+  Know More
+</motion.button>
+
         </motion.div>
 
         {/* Right Section - Carousel */}
