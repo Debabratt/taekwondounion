@@ -11,6 +11,7 @@ import BenefitsSection from './Components/BenefitsSection';
 import Category from './Components/Category';
 import Marque from './Components/Marque';
 import About from './Components/About';
+import Contact from './Components/Contact';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         } />
         
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       
       <Footer />
