@@ -1,25 +1,21 @@
 import { Home, Menu, X, MoreHorizontal, Shield, Info, Phone, Activity, Newspaper, Image, Users, User, Lock, UserCog, UserPlus } from "lucide-react";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Added for navigation
 
 export default function Mainnav() {
+  const navigate = useNavigate(); // Initialize navigate
   const [isOpen, setIsOpen] = useState(false);
   const [othersOpen, setOthersOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [loginType, setLoginType] = useState(null); // 'admin', 'associate' or 'player'
+  const [loginType, setLoginType] = useState(null);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
-  // Animation variants
-  // const navVariants = {
-  //   hidden: { y: -100 },
-  //   visible: { 
-  //     y: 0,
-  //     transition: {
-  //       type: "spring",
-  //       damping: 10,
-  //       stiffness: 100
-  //     }
-  //   }
-  // };
+  // Navigation handlers
+  const handleNavigation = (path) => {
+    navigate(path);
+    setIsOpen(false); // Close mobile menu if open
+  };
 
   const menuItemVariants = {
     open: {
@@ -67,11 +63,13 @@ export default function Mainnav() {
         className="fixed top-0 left-0 w-full h-auto z-50 bg-[#0B2545] shadow-lg"
         initial="hidden"
         animate="visible"
-        // variants={navVariants}
       >
         <div className="flex w-full">
-          {/* Left Section */}
-          <div className="w-[32%] md:w-[20%] flex items-center justify-center p-2 min-h-[70px]">
+          {/* Left Section - Logo with Home navigation */}
+          <div 
+            className="w-[32%] md:w-[20%] flex items-center justify-center p-2 min-h-[70px] cursor-pointer"
+            onClick={() => handleNavigation("/")}
+          >
             <motion.img
               src="/ITU LOGO.png"
               alt="SDDI Logo"
@@ -99,30 +97,129 @@ export default function Mainnav() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex gap-8 items-center w-full justify-center">
-              {[
-                { icon: <Home size={20} className="text-white" />, title: "HOME", subtitle: "Welcome to ITU" },
-                { icon: <Info size={20} className="text-white" />, title: "ABOUT", subtitle: "Learn about ITU" },
-                { icon: <Shield size={20} className="text-white" />, title: "STATE TAEKWONDO UNION", subtitle: "State-level representation" },
-                { icon: <Phone size={20} className="text-white" />, title: "CONTACT US", subtitle: "Get in touch" },
-                { icon: <Activity size={20} className="text-white" />, title: "SELF DEFENCE", subtitle: "Training programs" },
-              ].map((item, index) => (
+              {/* Home */}
+              <motion.div 
+                className="relative flex flex-col items-center cursor-pointer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleNavigation("/")}
+              >
+                <div className="flex items-center gap-2 transition duration-300">
+                  <Home size={20} className="text-white" />
+                  <div className="flex flex-col group">
+                    <div className="text-sm font-semibold text-white relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
+                      HOME
+                    </div>
+                    <div className="text-xs py-1 text-gray-400 min-h-[16px]">Welcome to ITU</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* About with Dropdown */}
+              <div 
+                className="relative" 
+                onMouseEnter={() => setAboutOpen(true)} 
+                onMouseLeave={() => setAboutOpen(false)}
+              >
                 <motion.div 
-                  key={index} 
                   className="relative flex flex-col items-center cursor-pointer"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => handleNavigation("/about")}
                 >
                   <div className="flex items-center gap-2 transition duration-300">
-                    {item.icon}
+                    <Info size={20} className="text-white" />
                     <div className="flex flex-col group">
                       <div className="text-sm font-semibold text-white relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
-                        {item.title}
+                        ABOUT
                       </div>
-                      <div className="text-xs py-1 text-gray-400 min-h-[16px]">{item.subtitle}</div>
+                      <div className="text-xs py-1 text-gray-400 min-h-[16px]">Learn about ITU</div>
                     </div>
                   </div>
                 </motion.div>
-              ))}
+
+                {/* About Dropdown Menu */}
+                <AnimatePresence>
+                  {aboutOpen && (
+                    <motion.div
+                      className="absolute top-12 left-1/2 transform -translate-x-1/2 w-48 bg-white shadow-lg rounded-md py-2 z-20"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div 
+                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                        whileHover={{ x: 5 }}
+                        onClick={() => handleNavigation("/about/directors")}
+                      >
+                        Union Of Directors
+                      </motion.div>
+                      <motion.div 
+                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                        whileHover={{ x: 5 }}
+                        onClick={() => handleNavigation("/about/referees")}
+                      >
+                        Referee & Instructors Profile
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* State Taekwondo Union */}
+              <motion.div 
+                className="relative flex flex-col items-center cursor-pointer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleNavigation("/state-union")}
+              >
+                <div className="flex items-center gap-2 transition duration-300">
+                  <Shield size={20} className="text-white" />
+                  <div className="flex flex-col group">
+                    <div className="text-sm font-semibold text-white relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
+                      STATE TAEKWONDO UNION
+                    </div>
+                    <div className="text-xs py-1 text-gray-400 min-h-[16px]">State-level representation</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Contact Us */}
+              <motion.div 
+                className="relative flex flex-col items-center cursor-pointer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleNavigation("/contact")}
+              >
+                <div className="flex items-center gap-2 transition duration-300">
+                  <Phone size={20} className="text-white" />
+                  <div className="flex flex-col group">
+                    <div className="text-sm font-semibold text-white relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
+                      CONTACT US
+                    </div>
+                    <div className="text-xs py-1 text-gray-400 min-h-[16px]">Get in touch</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Self Defence */}
+              <motion.div 
+                className="relative flex flex-col items-center cursor-pointer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleNavigation("/self-defence")}
+              >
+                <div className="flex items-center gap-2 transition duration-300">
+                  <Activity size={20} className="text-white" />
+                  <div className="flex flex-col group">
+                    <div className="text-sm font-semibold text-white relative after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
+                      SELF DEFENCE
+                    </div>
+                    <div className="text-xs py-1 text-gray-400 min-h-[16px]">Training programs</div>
+                  </div>
+                </div>
+              </motion.div>
 
               {/* OTHERS Section - Dropdown */}
               <motion.div
@@ -138,7 +235,6 @@ export default function Mainnav() {
                   </div>
                 </div>
 
-                {/* Dropdown Menu */}
                 <AnimatePresence>
                   {othersOpen && (
                     <motion.div
@@ -151,14 +247,17 @@ export default function Mainnav() {
                       <motion.div 
                         className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                         whileHover={{ x: 5 }}
+                        onClick={() => handleNavigation("/news")}
                       >Upcoming News</motion.div>
                       <motion.div 
                         className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                         whileHover={{ x: 5 }}
+                        onClick={() => handleNavigation("/gallery")}
                       >Gallery</motion.div>
                       <motion.div 
                         className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                         whileHover={{ x: 5 }}
+                        onClick={() => handleNavigation("/players")}
                       >Players</motion.div>
                     </motion.div>
                   )}
@@ -167,18 +266,17 @@ export default function Mainnav() {
 
               {/* Login Button */}
               <motion.button 
-  onClick={() => {
-    setIsLoginModalOpen(true);
-    setLoginType(null);
-  }}
-  className="ml-2 px-3 py-2 bg-white text-[#0B2545] rounded font-medium text-xs hover:bg-gray-100 transition duration-300 flex items-center gap-1"
-  whileHover={{ scale: 1.03 }}
-  whileTap={{ scale: 0.95 }}
->
-  <Lock size={14} />
-  Login
-</motion.button>
-
+                onClick={() => {
+                  setIsLoginModalOpen(true);
+                  setLoginType(null);
+                }}
+                className="ml-2 px-3 py-2 bg-white text-[#0B2545] rounded font-medium text-xs hover:bg-gray-100 transition duration-300 flex items-center gap-1"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Lock size={14} />
+                Login
+              </motion.button>
             </nav>
           </div>
         </div>
@@ -341,66 +439,67 @@ export default function Mainnav() {
 
       {/* Mobile Navigation - Fullscreen Overlay Menu */}
       <AnimatePresence>
-  {isOpen && (
-    <motion.div
-      className="fixed inset-0 mt-[50px] bg-[#0B2545] z-40 flex flex-col items-center justify-start pt-10 pb-10 px-4 h-[calc(100vh-30px)]"
-      initial={{ opacity: 0, x: "100%" }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: "100%" }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-    >
-      {/* Close Button */}
-      <button
-        onClick={() => setIsOpen(false)}
-        className="absolute top-5 right-5 text-white"
-        aria-label="Close menu"
-      >
-        <X size={30} />
-      </button>
-
-      {/* Mobile Menu Items */}
-      <nav className="flex flex-col gap-4 w-full max-w-md mt-4">
-        {[
-          { icon: <Home size={20} />, title: "HOME" },
-          { icon: <Info size={20} />, title: "ABOUT" },
-          { icon: <Shield size={20} />, title: "STATE TAEKWONDO UNION" },
-          { icon: <Phone size={20} />, title: "CONTACT US" },
-          { icon: <Activity size={20} />, title: "SELF DEFENCE" },
-          { icon: <Newspaper size={20} />, title: "UPCOMING NEWS" },
-          { icon: <Image size={20} />, title: "GALLERY" },
-          { icon: <Users size={20} />, title: "PLAYERS" },
-        ].map((item, index) => (
-          <motion.div 
-            key={index} 
-            className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-[#13315C] transition-colors"
-            variants={menuItemVariants}
-            custom={index}
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 mt-[50px] bg-[#0B2545] z-40 flex flex-col items-center justify-start pt-10 pb-10 px-4 h-[calc(100vh-30px)]"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            <div className="text-white">
-              {item.icon}
-            </div>
-            <span className="text-white text-base font-medium">{item.title}</span>
-          </motion.div>
-        ))}
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-5 right-5 text-white"
+              aria-label="Close menu"
+            >
+              <X size={30} />
+            </button>
 
-        {/* Mobile Login Button */}
-        <motion.button 
-          onClick={() => {
-            setIsOpen(false);
-            setIsLoginModalOpen(true);
-            setLoginType(null);
-          }}
-          className="mt-6 px-5 py-2 bg-white text-[#0B2545] rounded-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center gap-2"
-          variants={menuItemVariants}
-          custom={8}
-        >
-          <Lock size={18} />
-          <span className="font-semibold">Login</span>
-        </motion.button>
-      </nav>
-    </motion.div>
-  )}
-</AnimatePresence>
+            {/* Mobile Menu Items */}
+            <nav className="flex flex-col gap-4 w-full max-w-md mt-4">
+              {[
+                { icon: <Home size={20} />, title: "HOME", path: "/" },
+                { icon: <Info size={20} />, title: "ABOUT", path: "/about" },
+                { icon: <Shield size={20} />, title: "STATE TAEKWONDO UNION", path: "/state-union" },
+                { icon: <Phone size={20} />, title: "CONTACT US", path: "/contact" },
+                { icon: <Activity size={20} />, title: "SELF DEFENCE", path: "/self-defence" },
+                { icon: <Newspaper size={20} />, title: "UPCOMING NEWS", path: "/news" },
+                { icon: <Image size={20} />, title: "GALLERY", path: "/gallery" },
+                { icon: <Users size={20} />, title: "PLAYERS", path: "/players" },
+              ].map((item, index) => (
+                <motion.div 
+                  key={index} 
+                  className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-[#13315C] transition-colors"
+                  variants={menuItemVariants}
+                  custom={index}
+                  onClick={() => handleNavigation(item.path)}
+                >
+                  <div className="text-white">
+                    {item.icon}
+                  </div>
+                  <span className="text-white text-base font-medium">{item.title}</span>
+                </motion.div>
+              ))}
+
+              {/* Mobile Login Button */}
+              <motion.button 
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsLoginModalOpen(true);
+                  setLoginType(null);
+                }}
+                className="mt-6 px-5 py-2 bg-white text-[#0B2545] rounded-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center gap-2"
+                variants={menuItemVariants}
+                custom={8}
+              >
+                <Lock size={18} />
+                <span className="font-semibold">Login</span>
+              </motion.button>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Add padding to content to account for fixed navbar */}
       <div className="pt-[90px]"></div>

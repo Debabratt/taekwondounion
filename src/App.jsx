@@ -1,4 +1,5 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'; // No BrowserRouter here
 import "./index.css"; 
 import TopNav from './Components/TopNav';
 import Home from './Components/Home';
@@ -8,22 +9,33 @@ import Youtube from './Components/Youtube';
 import Footer from './Components/Footer';
 import BenefitsSection from './Components/BenefitsSection';
 import Category from './Components/Category';
-import Marque  from './Components/Marque';
+import Marque from './Components/Marque';
+import About from './Components/About';
+
 const App = () => {
   return (
-    <div>
-      <Mainnav/>
-        <TopNav />
+  
+    <>
+      <Mainnav />
+      <TopNav />
+      
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Home />
+            <Marque />
+            <BenefitsSection />
+            <ApprovalsSection />
+            <Youtube />
+            <Category />
+          </>
+        } />
         
-        <Home/>
-        <Marque/>
-        <BenefitsSection/>
-        <ApprovalsSection/>
-        <Youtube/>
-        
-        <Category/>
-        <Footer/>
-    </div>
+        <Route path="/about" element={<About />} />
+      </Routes>
+      
+      <Footer />
+    </>
   )
 }
 
