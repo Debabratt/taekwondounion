@@ -32,7 +32,7 @@ const ApprovalsSection = () => {
     </h2>
 
     {/* Paragraph */}
-    <p className="text-gray-200 text-sm md:text-base leading-relaxed transform md:-skew-x-[10deg]">
+    <p className="text-gray-200  pr-3 text-sm md:text-base leading-relaxed transform md:-skew-x-[10deg]">
       Our journey in Taekwondo is a testament to dedication, discipline, and excellence. Over the years, we have proudly secured top honors in national championships, represented our country on international platforms, and nurtured world-class athletes. From producing Kukkiwon-certified black belts to organizing award-winning tournaments, our achievements reflect our unwavering commitment to advancing Taekwondo as a sport and a way of life.
     </p>
 
