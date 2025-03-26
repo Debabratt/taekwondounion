@@ -62,7 +62,7 @@ const Footer = () => {
   }, [index]);
   return (
     <footer className="relative">
-      <div className="bg-[url('/earth1.jpg')] bg-blue-900 bg-opacity-90 bg-cover bg-center text-white py-10 px-5">
+      <div className="bg-[url('/footer2.jpg')] bg-blue-900 bg-opacity-90 bg-cover bg-center text-white py-10 px-5">
         <div className="max-w-7xl mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center md:text-left">
           {/* Organization */}
           <div>
