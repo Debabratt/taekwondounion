@@ -12,6 +12,7 @@ import Category from './Components/Category';
 import Marque from './Components/Marque';
 import About from './Components/About';
 import Contact from './Components/Contact';
+import StateUnion from './Components/StateUnion';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
         
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/state-union" element={<StateUnion />} />
       </Routes>
       
       <Footer />

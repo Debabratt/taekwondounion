@@ -12,6 +12,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { GiBoxingGlove } from "react-icons/gi";
+import { FaGooglePlay, FaApple } from "react-icons/fa";
 const allStates = [
   "Andhra Pradesh",
   "Arunachal Pradesh",
@@ -142,30 +143,25 @@ const Footer = () => {
         {/* Ministries and States */}
         <div className="mt-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Ministries Section */}
-          <div>
-            <h3 className="text-green-400 font-semibold text-lg text-center md:text-left">
-              What We are
-              <span className="text-[#D2E3FB]"> Delivering</span>
-            </h3>
-            <div className="grid grid-cols-2  md:grid-cols-3 gap-4 mt-5">
-              {[
-                { title: "High Level Kicks", icon: <Footprints size={24} /> }, // 🥋
-                { title: "Kyorugi", icon: <GiBoxingGlove size={24} /> }, // 🥊
-                { title: "Poomsae", icon: <ClipboardCheck size={24} /> }, // 🎭
-                { title: "Self-Defence", icon: <ShieldCheck size={24} /> }, // 🛡
-                { title: "Sparring", icon: <Sword size={24} /> }, // ⚔️
-                { title: "Weapons Training", icon: <Axe size={24} /> }, // 🪓
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-[#11314F] opacity-70 p-4  rounded-lg flex flex-col items-center justify-center text-white"
-                >
-                  {item.icon}
-                  <p className="mt-2">{item.title}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+  <div className="text-center md:text-left mb-4 md:mb-0">
+    <h2 className="text-lg font-semibold">Download Our App</h2>
+    <div className="flex justify-center md:justify-start mt-2">
+      <a
+        href="https://play.google.com/store"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition"
+      >
+        <FaGooglePlay className="mr-2" />
+        <span>Google Play</span>
+      </a>
+    </div>
+    {/* <p className="text-sm font-semibold text-gray-400 mt-2">
+      Get our app for a better experience.
+    </p> */}
+  </div>
+</div>
 
           {/* States Section */}
           <div>
