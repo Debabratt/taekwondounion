@@ -73,68 +73,16 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           {/* Tricolor Icon with Lotus */}
-          <motion.div 
-            className="relative mb-4"
-            animate={{ 
-              rotate: [0, 5, -5, 0],
-              scale: [1, 1.05, 1]
-            }}
-            transition={{ 
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          >
-            <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-gray-200 flex items-center justify-center mx-auto relative overflow-hidden">
-              {/* Indian flag tricolor stripes */}
-              <motion.div 
-                className="absolute top-0 left-0 w-full h-1/3 bg-orange-500"
-                custom={0}
-                initial="hidden"
-                animate="visible"
-                variants={flagWave}
-              />
-              <motion.div 
-                className="absolute top-1/3 left-0 w-full h-1/3 bg-white flex items-center justify-center"
-                custom={1}
-                initial="hidden"
-                animate="visible"
-                variants={flagWave}
-              >
-                <GiLotus className="text-blue-600 text-2xl" />
-              </motion.div>
-              <motion.div 
-                className="absolute bottom-0 left-0 w-full h-1/3 bg-green-500"
-                custom={2}
-                initial="hidden"
-                animate="visible"
-                variants={flagWave}
-              />
-            </div>
-            <motion.div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              animate={{
-                rotate: [0, 360],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            >
-              <GiLotus className="text-blue-600 text-3xl" />
-            </motion.div>
-          </motion.div>
+        
           
           <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <span className="text-orange-500">Namaste</span>, <span className="text-green-600">Let's Connect</span>
-          </motion.h1>
+  className="text-3xl md:text-4xl font-serif text-gray-900 mb-4"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.2 }}
+>
+  <span className="text-orange-500">Namaste 🙏</span>, <span className="text-green-600">Let's Connect</span>
+</motion.h1>
           <motion.p 
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
