@@ -13,6 +13,9 @@ import Marque from './Components/Marque';
 import About from './Components/About';
 import Contact from './Components/Contact';
 import StateUnion from './Components/StateUnion';
+import News from './Components/News';
+import Gallery from './Components/Gallery';
+import UnionAbout from './Components/UnionABout';
 
 const App = () => {
   return (
@@ -36,6 +39,9 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/state-union" element={<StateUnion />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/about/directors" element={<UnionAbout />} />
       </Routes>
       
       <Footer />

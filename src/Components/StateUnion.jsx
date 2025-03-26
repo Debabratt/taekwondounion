@@ -1,122 +1,123 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const StateUnion = () => {
-  const [selectedState, setSelectedState] = useState(null);
-  
   const states = [
     { 
       id: 1, 
       name: 'Maharashtra', 
-      members: 3200, 
-      dojangs: 120, 
+      secretary: 'Shri Rajesh Verma', 
+      districts: 36, 
       champion: 'Master Rajesh Patil', 
-      image: '/maharashtra.jpg',
-      unionName: 'Maharashtra Taekwondo Association',
+      unionName: 'Maharashtra Taekwondo Union',
       established: 1995,
-      president: 'Dr. Sanjay Deshmukh',
       headquarters: 'Mumbai',
-      contact: 'info@mahatkd.org',
-      website: 'www.mahatkd.org',
-      color: 'from-amber-600 to-amber-800'
+      color: 'from-indigo-900 via-purple-900 to-violet-900',
+      active: true
     },
     { 
       id: 2, 
       name: 'Delhi', 
-      members: 2800, 
-      dojangs: 95, 
+      secretary: 'Shri Vikram Singh', 
+      districts: 11, 
       champion: 'Master Vikram Singh', 
-      image: '/delhi.jpg',
-      unionName: 'Delhi Taekwondo Federation',
+      unionName: 'Delhi Taekwondo Union',
       established: 1992,
-      president: 'Col. Ramesh Chandra',
       headquarters: 'New Delhi',
-      contact: 'contact@delhitkd.in',
-      website: 'www.delhitkd.in',
-      color: 'from-blue-600 to-blue-800'
+      color: 'from-amber-900 via-orange-900 to-red-900',
+      active: true
     },
     { 
       id: 3, 
       name: 'Karnataka', 
-      members: 2500, 
-      dojangs: 110, 
+      secretary: 'Shri Arjun Reddy', 
+      districts: 30, 
       champion: 'Master Arjun Reddy', 
-      image: '/karnataka.jpg',
-      unionName: 'Karnataka State Taekwondo Association',
+      unionName: 'Karnataka Taekwondo Union',
       established: 1998,
-      president: 'Prof. Mohan Kumar',
       headquarters: 'Bengaluru',
-      contact: 'ksta@kar.nic.in',
-      website: 'www.karnatakatkd.org',
-      color: 'from-red-600 to-red-800'
+      color: 'from-emerald-900 via-teal-900 to-cyan-900',
+      active: true
     },
     { 
       id: 4, 
       name: 'Tamil Nadu', 
-      members: 2300, 
-      dojangs: 105, 
+      secretary: 'Shri Karthik Iyer',
+      districts: 38, 
       champion: 'Master Karthik Iyer', 
-      image: '/tamilnadu.jpg',
       unionName: 'Tamil Nadu Taekwondo Union',
       established: 1996,
-      president: 'Mr. Senthil Nathan',
       headquarters: 'Chennai',
-      contact: 'tntkdunion@gmail.com',
-      website: 'www.tntkd.org',
-      color: 'from-green-600 to-green-800'
+      color: 'from-blue-900 via-indigo-900 to-purple-900',
+      active: true
     },
     { 
       id: 5, 
       name: 'Kerala', 
-      members: 2100, 
-      dojangs: 90, 
+      secretary: 'Shri Ajith Nair', 
+      districts: 14, 
       champion: 'Master Ajith Nair', 
-      image: '/kerala.jpg',
-      unionName: 'Kerala Taekwondo Academy',
+      unionName: 'Kerala Taekwondo Union',
       established: 1994,
-      president: 'Mr. Ramesh Menon',
       headquarters: 'Kochi',
-      contact: 'keralatkd@yahoo.com',
-      website: 'www.keralatkd.com',
-      color: 'from-emerald-600 to-emerald-800'
+      color: 'from-green-900 via-emerald-900 to-teal-900',
+      active: true
     },
     { 
       id: 6, 
       name: 'Gujarat', 
-      members: 1900, 
-      dojangs: 85, 
+      secretary: 'Shri Jayesh Patel', 
+      districts: 33, 
       champion: 'Master Jayesh Patel', 
-      image: '/gujarat.jpg',
-      unionName: 'Gujarat Taekwondo Committee',
+      unionName: 'Gujarat Taekwondo Union',
       established: 2001,
-      president: 'Mr. Amit Shah',
       headquarters: 'Ahmedabad',
-      contact: 'gujarat.tkd@gmail.com',
-      website: 'www.gujarattkd.org',
-      color: 'from-violet-600 to-violet-800'
+      color: 'from-rose-900 via-pink-900 to-fuchsia-900',
+      active: true
+    },
+    { 
+      id: 7, 
+      name: 'Rajasthan', 
+      active: false,
+      color: 'from-yellow-900 via-amber-900 to-orange-900'
+    },
+    { 
+      id: 8, 
+      name: 'Punjab', 
+      active: false,
+      color: 'from-sky-900 via-blue-900 to-indigo-900'
+    },
+    { 
+      id: 9, 
+      name: 'West Bengal', 
+      active: false,
+      color: 'from-red-900 via-rose-900 to-pink-900'
     },
   ];
 
-  // Animation variants
+  // Enhanced animations
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.4
       }
     }
   };
 
-  const item = {
-    hidden: { y: 20, opacity: 0 },
+  const cardItem = {
+    hidden: { y: 60, opacity: 0, scale: 0.95 },
     show: {
       y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1]
+        type: "spring",
+        damping: 15,
+        stiffness: 100,
+        duration: 0.7
       }
     }
   };
@@ -124,73 +125,148 @@ const StateUnion = () => {
   const cardHover = {
     initial: { 
       y: 0,
-      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+      scale: 1,
+      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+      rotate: 0
     },
     hover: { 
-      y: -8,
-      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      y: -12,
+      scale: 1.03,
+      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
       transition: {
-        duration: 0.3,
-        ease: [0.16, 1, 0.3, 1]
+        type: "spring",
+        damping: 10,
+        stiffness: 200
       }
     }
   };
 
-  const modalOverlay = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 }
+  const floating = {
+    initial: { y: 0 },
+    hover: {
+      y: [0, -8, 0],
+      transition: {
+        duration: 2.5,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
   };
 
-  const modalContent = {
-    initial: { 
-      opacity: 0,
-      y: 50,
-      scale: 0.95
-    },
+  const gradientWave = {
+    initial: { backgroundPosition: '0% 50%' },
+    hover: {
+      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "linear"
+      }
+    }
+  };
+
+  const textReveal = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+        duration: 0.8
+      }
+    }
+  };
+
+  const pulse = {
+    initial: { scale: 1 },
+    hover: {
+      scale: [1, 1.05, 1],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const backgroundVariants = {
+    initial: { opacity: 0 },
     animate: { 
       opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    },
-    exit: { 
-      opacity: 0,
-      y: 50,
-      transition: {
-        duration: 0.3
-      }
+      transition: { duration: 1.5 }
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div 
+        className="fixed inset-0 overflow-hidden pointer-events-none"
+        variants={backgroundVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: Math.random() * 200 + 50,
+                height: Math.random() * 200 + 50,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: 0.05 + Math.random() * 0.1
+              }}
+              animate={{
+                y: [0, (Math.random() > 0.5 ? 1 : -1) * 50, 0],
+                x: [0, (Math.random() > 0.5 ? 1 : -1) * 50, 0],
+                rotate: [0, 360]
+              }}
+              transition={{
+                duration: 20 + Math.random() * 20,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Animated Header */}
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 }
+            }
+          }}
           className="text-center mb-16"
         >
           <motion.h1 
-            className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            className="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl mb-6"
+            variants={textReveal}
           >
-            Indian Taekwondo <span className="text-amber-600">State Associations</span>
+            <motion.span className="inline-block">
+              State <motion.span 
+                className="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 bg-clip-text text-transparent"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
+              >Unions</motion.span>
+            </motion.span>
           </motion.h1>
           <motion.p 
-            className="mt-5 max-w-xl mx-auto text-xl text-gray-600"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            className="mt-5 max-w-2xl mx-auto text-xl text-gray-300 font-light"
+            variants={textReveal}
           >
-            Discover and connect with Taekwondo organizations across India
+            Discover the network of Taekwondo unions across India, fostering martial arts excellence nationwide
           </motion.p>
         </motion.div>
 
@@ -204,218 +280,150 @@ const StateUnion = () => {
           {states.map((state) => (
             <motion.div
               key={state.id}
-              variants={item}
+              variants={cardItem}
               whileHover="hover"
-              initial="initial"
-              animate="show"
+              className="h-full"
             >
-              <motion.div
-                variants={cardHover}
-                className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer h-full border border-gray-100"
-                onClick={() => setSelectedState(state)}
-              >
-                <div className={`h-48 bg-gradient-to-r ${state.color} flex items-center justify-center relative overflow-hidden`}>
-                  <motion.span 
-                    className="text-white text-2xl font-bold z-10"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    {state.name}
-                  </motion.span>
+              {state.active ? (
+                <motion.div
+                  variants={cardHover}
+                  className="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden cursor-pointer h-full border border-gray-700/50 hover:border-amber-400/30 transition-all duration-300 group relative"
+                >
+                  {/* Gradient background with wave animation */}
                   <motion.div 
-                    className="absolute inset-0 bg-black bg-opacity-10"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900">{state.unionName}</h3>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-gray-500">Members</span>
-                      <span className="font-medium text-gray-900">{state.members.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-500">Training Centers</span>
-                      <span className="font-medium text-gray-900">{state.dojangs}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-500">State Champion</span>
-                      <span className="font-medium text-gray-900">{state.champion.split(' ')[0] + ' ' + state.champion.split(' ')[1][0] + '.'}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Modal with AnimatePresence */}
-        <AnimatePresence>
-          {selectedState && (
-            <motion.div 
-              variants={modalOverlay}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50"
-              onClick={() => setSelectedState(null)}
-            >
-              <motion.div 
-                variants={modalContent}
-                className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-xl"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="relative">
-                  <div className={`h-72 bg-gradient-to-r ${selectedState.color} flex items-center justify-center relative overflow-hidden`}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
-                      className="text-center z-10 px-4"
+                    className={`h-64 w-full bg-gradient-to-r ${state.color} flex items-center justify-center relative overflow-hidden bg-[length:300%_300%]`}
+                    variants={gradientWave}
+                  >
+                    <motion.span 
+                      className="text-white text-4xl font-bold z-10 drop-shadow-lg"
+                      whileHover={{ scale: 1.05 }}
                     >
-                      <h2 className="text-4xl font-bold text-white mb-2">{selectedState.name}</h2>
-                      <p className="text-xl text-white opacity-90">{selectedState.unionName}</p>
-                    </motion.div>
-                    <motion.div 
-                      className="absolute inset-0 bg-black bg-opacity-20"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                    />
-                  </div>
-                  <motion.button 
-                    className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
-                    onClick={() => setSelectedState(null)}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </motion.button>
-                </div>
-                
-                <div className="p-8">
-                  {/* Association Info */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="mb-10"
-                  >
-                    <h3 className="text-2xl font-bold mb-6 text-gray-900 border-b pb-2">Association Information</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-4">
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Established</h4>
-                          <p className="text-lg font-medium text-gray-900">{selectedState.established}</p>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">President</h4>
-                          <p className="text-lg font-medium text-gray-900">{selectedState.president}</p>
-                        </div>
-                      </div>
-                      <div className="space-y-4">
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Headquarters</h4>
-                          <p className="text-lg font-medium text-gray-900">{selectedState.headquarters}</p>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Contact</h4>
-                          <p className="text-lg font-medium text-gray-900">{selectedState.contact}</p>
-                        </div>
-                      </div>
-                    </div>
+                      {state.name}
+                    </motion.span>
+                    <div className="absolute inset-0 bg-black/20" />
                   </motion.div>
-
-                  {/* Stats */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="mb-10"
-                  >
-                    <h3 className="text-2xl font-bold mb-6 text-gray-900 border-b pb-2">Statistics</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div className="bg-gray-50 p-4 rounded-xl text-center">
-                        <p className="text-3xl font-bold text-amber-600">{selectedState.members.toLocaleString()}</p>
-                        <p className="text-sm text-gray-500">Members</p>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-xl text-center">
-                        <p className="text-3xl font-bold text-amber-600">{selectedState.dojangs}</p>
-                        <p className="text-sm text-gray-500">Training Centers</p>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-xl text-center">
-                        <p className="text-3xl font-bold text-amber-600">{Math.floor(selectedState.dojangs * 1.5)}</p>
-                        <p className="text-sm text-gray-500">Certified Coaches</p>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-xl text-center">
-                        <p className="text-3xl font-bold text-amber-600">{selectedState.dojangs + 5}</p>
-                        <p className="text-sm text-gray-500">Annual Events</p>
-                      </div>
+                  
+                  {/* Content */}
+                  <div className="p-6 relative z-10">
+                    <div className="flex justify-between items-center mb-4">
+                      <motion.h3 
+                        className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {state.unionName}
+                      </motion.h3>
+                      <motion.span 
+                        className="text-xs bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full group-hover:bg-amber-500 group-hover:text-white transition-colors"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        Est. {state.established}
+                      </motion.span>
                     </div>
-                  </motion.div>
-
-                  {/* Champion */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                    className="mb-10"
-                  >
-                    <h3 className="text-2xl font-bold mb-6 text-gray-900 border-b pb-2">State Champion</h3>
-                    <div className="flex items-center space-x-6 bg-gradient-to-r from-amber-50 to-amber-100 p-6 rounded-2xl">
-                      <div className="h-20 w-20 bg-amber-200 rounded-full flex items-center justify-center text-amber-800 font-bold text-2xl">
-                        {selectedState.champion.split(' ')[1][0]}
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-gray-900">{selectedState.champion}</h4>
-                        <p className="text-gray-600 mb-2">Current State Champion</p>
-                        <div className="flex space-x-2">
-                          <span className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full">5th Dan Black Belt</span>
-                          <span className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full">National Medalist</span>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Events */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    <h3 className="text-2xl font-bold mb-6 text-gray-900 border-b pb-2">Upcoming Events</h3>
-                    <div className="space-y-4">
-                      {[1, 2, 3].map((item) => (
+                    
+                    <div className="space-y-3 text-sm">
+                      {[
+                        { label: 'Secretary', value: state.secretary, icon: '👤', delay: 0.3 },
+                        { label: 'Districts', value: state.districts, icon: '🗺️', delay: 0.4 },
+                        { label: 'Champion', value: state.champion, icon: '🏆', delay: 0.5 }
+                      ].map((item, idx) => (
                         <motion.div 
-                          key={item}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl hover:shadow-md transition-all"
+                          key={idx}
+                          className="flex items-center"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: item.delay }}
                         >
-                          <div>
-                            <h4 className="font-medium text-gray-900">{selectedState.name} Taekwondo {item === 1 ? 'Championship' : item === 2 ? 'Open Tournament' : 'Youth Festival'}</h4>
-                            <p className="text-sm text-gray-500">
-                              {new Date(2023, 5, 10 + item).toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' })}
-                            </p>
-                          </div>
-                          <button className="px-4 py-2 bg-amber-600 text-white text-sm font-medium rounded-lg hover:bg-amber-700 transition-colors">
-                            Register
-                          </button>
+                          <span className="text-gray-400 mr-2">{item.icon}</span>
+                          <span className="text-gray-400 flex-1">{item.label}</span>
+                          <span className="font-medium text-white text-right">{item.value}</span>
                         </motion.div>
                       ))}
                     </div>
+                    
+                    <motion.div 
+                      className="mt-4 pt-4 border-t border-gray-700/50 flex items-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.6 }}
+                    >
+                      <motion.svg 
+                        className="w-4 h-4 mr-2 text-gray-400" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        variants={floating}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </motion.svg>
+                      <span className="text-xs text-gray-400">{state.headquarters}</span>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  variants={cardHover}
+                  className="bg-gray-800/30 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden cursor-pointer h-full border-2 border-dashed border-gray-700/50 flex flex-col group"
+                >
+                  <motion.div 
+                    className={`h-64 w-full bg-gradient-to-r ${state.color} flex items-center justify-center`}
+                    variants={pulse}
+                  >
+                    <motion.span 
+                      className="text-white text-4xl font-bold drop-shadow-lg"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {state.name}
+                    </motion.span>
                   </motion.div>
-                </div>
-              </motion.div>
+                  
+                  <div className="p-6 text-center flex flex-col items-center justify-center flex-1">
+                    <motion.h3 
+                      className="text-xl font-bold text-white mb-3 group-hover:text-amber-300 transition-colors"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      {state.name} Taekwondo
+                    </motion.h3>
+                    
+                    <motion.div 
+                      className="px-4 py-1.5 bg-amber-500/20 text-amber-400 rounded-full text-sm font-semibold mb-3 inline-flex items-center"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <motion.span 
+                        className="inline-block mr-2"
+                        animate={{
+                          rotate: [0, 360],
+                          transition: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }
+                        }}
+                      >
+                        ⏳
+                      </motion.span>
+                      Coming Soon
+                    </motion.div>
+                    
+                    <motion.p 
+                      className="text-gray-400 text-sm max-w-xs"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      Union formation in progress. Stay tuned for updates!
+                    </motion.p>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
-          )}
-        </AnimatePresence>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
