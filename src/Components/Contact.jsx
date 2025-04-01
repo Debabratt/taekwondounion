@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane, FaYoutube } from 'react-icons/fa';
 import { SiGooglemaps } from 'react-icons/si';
 import { GiIndiaGate, GiTigerHead, GiLotus } from 'react-icons/gi';
 import { BsFillChatSquareQuoteFill } from 'react-icons/bs';
@@ -302,33 +302,46 @@ const Contact = () => {
                 Stay updated with our latest news
               </motion.p>
 
-              <motion.div 
-                className="flex justify-center gap-4 relative z-10"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.4 }}
-              >
-                {[
-                  { icon: <FaFacebook />, color: 'bg-orange-500 hover:bg-orange-600' },
-                  { icon: <FaTwitter />, color: 'bg-blue-400 hover:bg-blue-500' },
-                  { icon: <FaInstagram />, color: 'bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 hover:from-orange-600 hover:via-pink-600 hover:to-purple-600' },
-                  { icon: <FaLinkedin />, color: 'bg-green-600 hover:bg-green-700' }
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href="#"
-                    className={`${social.color} text-white p-4 rounded-full shadow-md transition-all`}
-                    whileHover={{ 
-                      y: -8,
-                      scale: 1.1,
-                      transition: { type: "spring", stiffness: 400 }
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </motion.div>
+              <motion.div className="flex justify-center gap-4 relative z-10">
+  {[
+    { 
+      icon: <FaFacebook />, 
+      color: 'bg-orange-500 hover:bg-orange-600',
+      url: 'https://www.facebook.com/yourpage'
+    },
+    { 
+      icon: <FaTwitter />, 
+      color: 'bg-blue-400 hover:bg-blue-500',
+      url: 'https://www.facebook.com/share/16Kxqfx9wp/'
+    },
+    { 
+      icon: <FaInstagram />, 
+      color: 'bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 hover:from-orange-600 hover:via-pink-600 hover:to-purple-600',
+      url: 'https://www.instagram.com/indian_taekwondo_union_?igsh=MXgxejB3NDN6Y2Jhdw=='
+    },
+    { 
+      icon: <FaYoutube />, 
+      color: 'bg-red-500 hover:bg-red-600',
+      url: 'https://youtube.com/@indiantaekwondounion6210?si=l3n62Z7QLTqYWR6m'
+    }
+  ].map((social, index) => (
+    <motion.a
+      key={index}
+      href={social.url}
+      target="_blank"  // Opens link in new tab
+      rel="noopener noreferrer"  // Important for security with target="_blank"
+      className={`${social.color} text-white p-4 rounded-full shadow-md transition-all`}
+      whileHover={{ 
+        y: -8,
+        scale: 1.1,
+        transition: { type: "spring", stiffness: 400 }
+      }}
+      whileTap={{ scale: 0.9 }}
+    >
+      {social.icon}
+    </motion.a>
+  ))}
+</motion.div>
             </motion.div>
           </div>
         </div>
@@ -341,21 +354,21 @@ const Contact = () => {
           transition={{ delay: 1.6 }}
         >
           <div className="flex justify-center gap-2 mb-4">
-            <motion.div 
+            {/* <motion.div 
               className="w-8 h-1 bg-orange-500 rounded-full"
               animate={{ scaleX: [1, 1.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-            />
-            <motion.div 
+            /> */}
+            {/* <motion.div 
               className="w-8 h-1 bg-white rounded-full"
               animate={{ scaleX: [1, 1.5, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-            />
-            <motion.div 
+            /> */}
+            {/* <motion.div 
               className="w-8 h-1 bg-green-500 rounded-full"
               animate={{ scaleX: [1, 1.5, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-            />
+            /> */}
           </div>
           <p>Made with ❤️ in India</p>
         </motion.div>

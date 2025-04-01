@@ -300,10 +300,10 @@ const About = () => {
             <FaFistRaised className="text-12xl text-[#138808]" />
           </motion.div>
 
-          <h2 className="text-3xl font-bold text-[#0B2545] mb-6 relative z-10">
-            Our Foundation
-            <span className="absolute bottom-0 left-0 h-1 w-20 bg-[#138808] rounded-full"></span>
-          </h2>
+          <h2 className="text-3xl font-bold text-[#0B2545] mb-6 relative z-10 text-center">
+          Our Foundation
+  <div className="w-24 h-1 mx-auto mt-2 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-full"></div>
+</h2>
           <p className="text-lg text-gray-700 mb-6 relative z-10">
             The Indian Taekwondo Union (ITU) was founded by Master Mukesh Kumar Sahoo with the vision to establish 
             a national-level organization where Taekwondo players, instructors, and referees could receive the honor 
@@ -329,10 +329,10 @@ const About = () => {
           variants={cardVariants} 
           className="bg-white rounded-xl shadow-lg p-8 md:p-10 border-t-4 border-[#0B2545] relative overflow-hidden"
         >
-          <h2 className="text-3xl font-bold text-[#0B2545] mb-6 relative z-10">
-            Our Purpose
-            <span className="absolute bottom-0 left-0 h-1 w-20 bg-[#FF9933] rounded-full"></span>
-          </h2>
+          <h2 className="text-3xl font-bold text-[#0B2545] mb-6 relative z-10 text-center">
+  Our Purpose
+  <div className="w-24 h-1 mx-auto mt-2 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-full"></div>
+</h2>
           <div className="space-y-6 relative z-10">
             <p className="text-lg text-gray-700">
               Indian Taekwondo Union was established to address the shortcomings in how Taekwondo was being promoted in India. 
@@ -363,7 +363,7 @@ const About = () => {
         <motion.div variants={cardVariants}>
           <h2 className="text-3xl font-bold text-[#0B2545] mb-10 text-center relative">
             Our Ambitions
-            <div className="w-24 h-1 mx-auto mt-2 bg-gradient-to-r from-[#FF9933] via-[#0B2545] to-[#138808] rounded-full"></div>
+            <div className="w-24 h-1 mx-auto mt-2 bg-gradient-to-r from-[#FF9933] via-[#ffffff] to-[#138808] rounded-full"></div>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {ambitions.map((item, index) => (
