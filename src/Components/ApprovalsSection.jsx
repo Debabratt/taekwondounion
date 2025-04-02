@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const achievements = [
   {
@@ -37,9 +38,11 @@ const ApprovalsSection = () => {
     </p>
 
     {/* Button */}
-    <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg mt-6 md:mt-4 transition transform md:-skew-x-[10deg]">
-      VIEW OUR ACHIEVEMENTS
-    </button>
+    <Link to="/gallery">
+              <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg mt-6 md:mt-4 transition transform md:-skew-x-[10deg]">
+                VIEW OUR ACHIEVEMENTS
+              </button>
+            </Link>
   </div>
 </div>
 

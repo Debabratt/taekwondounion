@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Gallery = () => {
-  // Indian-themed gallery images with different aspect ratios
   const galleryImages = [
     { 
       id: 1, 
@@ -36,38 +35,6 @@ const Gallery = () => {
       title: 'Varanasi Ghats',
       description: 'Spiritual morning at the banks of Ganges'
     },
-    { 
-      id: 5, 
-      src: 'https://images.unsplash.com/photo-1582977312208-e1a1b01e4c1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 
-      alt: 'Indian street food', 
-      cols: 1,
-      title: 'Street Food',
-      description: 'Delicious chaat from Delhi streets'
-    },
-    { 
-      id: 6, 
-      src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 
-      alt: 'Goa beaches', 
-      cols: 1,
-      title: 'Goa Beaches',
-      description: 'Beautiful sunset at Palolem beach'
-    },
-    { 
-      id: 7, 
-      src: 'https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 
-      alt: 'Indian spices', 
-      cols: 1,
-      title: 'Colorful Spices',
-      description: 'Traditional Indian spices in market'
-    },
-    { 
-      id: 8, 
-      src: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 
-      alt: 'Holi festival', 
-      cols: 2,
-      title: 'Holi Festival',
-      description: 'Celebration of colors across India'
-    },
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -93,9 +60,16 @@ const Gallery = () => {
     setCurrentIndex(newIndex);
   };
 
+  // Handle keyboard navigation
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate('prev');
+    if (e.key === 'ArrowRight') navigate('next');
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8 text-indigo-800">Incredible India Gallery</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">Gallery</h1>
       
       {/* Masonry Grid */}
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
@@ -126,10 +100,6 @@ const Gallery = () => {
                 </svg>
               </motion.div>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
-              <h3 className="font-bold">{image.title}</h3>
-              <p className="text-sm">{image.description}</p>
-            </div>
           </motion.div>
         ))}
       </div>
@@ -142,56 +112,64 @@ const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
           >
+            {/* Close Button */}
             <button
-              className="absolute top-4 right-4 text-white text-4xl hover:text-indigo-300 transition-colors"
+              className="absolute top-6 right-6 text-white text-3xl z-50 hover:text-gray-300 transition-colors focus:outline-none"
               onClick={closeLightbox}
               aria-label="Close lightbox"
             >
               &times;
             </button>
 
-            <motion.div
-              className="relative max-w-4xl w-full"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-            >
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                className="max-h-[80vh] w-full object-contain rounded-lg"
-              />
+            {/* Main Content */}
+            <div className="relative w-full h-full max-w-6xl flex items-center justify-center">
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => navigate('prev')}
+                className="absolute left-4 md:left-8 z-50  bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all focus:outline-none"
+                aria-label="Previous image"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
 
-              <div className="mt-4 text-white text-center">
-                <h2 className="text-2xl font-bold">{selectedImage.title}</h2>
-                <p className="text-lg">{selectedImage.description}</p>
-                <p className="text-sm opacity-70 mt-2">
+              {/* Image */}
+              <motion.div
+                className="flex items-center justify-center h-full w-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="max-h-[80vh] max-w-full object-contain rounded-lg"
+                />
+              </motion.div>
+
+              <button
+                onClick={() => navigate('next')}
+                className="absolute right-4 md:right-8 z-50 bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all focus:outline-none"
+                aria-label="Next image"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Image Info */}
+              <div className="absolute bottom-6 left-0 right-0 text-center text-white">
+                <h2 className="text-xl font-bold">{selectedImage.title}</h2>
+                <p className="text-sm opacity-80 mt-1">
                   {currentIndex + 1} / {galleryImages.length}
                 </p>
               </div>
-
-              <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 transform -translate-y-1/2">
-                <button
-                  onClick={() => navigate('prev')}
-                  className="bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full"
-                  aria-label="Previous image"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  onClick={() => navigate('next')}
-                  className="bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full"
-                  aria-label="Next image"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

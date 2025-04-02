@@ -79,7 +79,7 @@ export default function Category() {
           autoPlay={true}
           autoPlaySpeed={3000}
           showDots={false}
-          arrows={true}
+          arrows={false}
           containerClass="carousel-container"
         >
           {slides.map((slide, index) => (
