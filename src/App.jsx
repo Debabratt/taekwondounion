@@ -5,7 +5,7 @@ import TopNav from './Components/TopNav';
 import Home from './Components/Home';
 import Mainnav from './Components/Mainnav';
 import ApprovalsSection from './Components/ApprovalsSection';
-import Youtube from './Components/Youtube';
+
 import Footer from './Components/Footer';
 import BenefitsSection from './Components/BenefitsSection';
 import Category from './Components/Category';
@@ -16,6 +16,7 @@ import StateUnion from './Components/StateUnion';
 import News from './Components/News';
 import Gallery from './Components/Gallery';
 import UnionAbout from './Components/UnionABout';
+import Map from './Components/Map';
 
 const App = () => {
   return (
@@ -31,7 +32,7 @@ const App = () => {
             <Marque />
             <BenefitsSection />
             <ApprovalsSection />
-            <Youtube />
+            <Map />
             <Category />
           </>
         } />

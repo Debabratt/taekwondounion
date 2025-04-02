@@ -165,21 +165,21 @@ const Footer = () => {
 
           {/* States Section */}
           <div>
-            <h3 className="text-green-400 font-bold text-lg text-center md:text-left">
-              States Units are{" "}
-              <span className="text-[#D2E3FB]">live with Us</span>
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
-              {visibleStates.map((state, index) => (
-                <div
-                  key={index}
-                  className="bg-[#11314F] opacity-70 p-4 rounded-lg flex items-center justify-center text-white"
-                >
-                  <p>{state}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+  <h3 className="text-green-400 font-bold text-lg text-center md:text-left">
+    States Units are{" "}
+    <span className="text-[#D2E3FB]">live with Us</span>
+  </h3>
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
+    {visibleStates.map((state, index) => (
+      <div
+        key={index}
+        className="bg-[#11314F] opacity-70 p-4 rounded-lg flex items-center justify-center text-white h-20" // Added fixed height h-20
+      >
+        <p className="text-center">{state}</p> {/* Added text-center for better alignment */}
+      </div>
+    ))}
+  </div>
+</div>
         </div>
       </div>
 

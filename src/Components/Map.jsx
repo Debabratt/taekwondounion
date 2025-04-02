@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import IndiaMapSVG from "./IndiaMapSVG";
 
-const Youtube = () => {
+const Map = () => {
   const [selectedState, setSelectedState] = useState("Organizations");
 
   const handleStateClick = (stateName) => {
@@ -44,6 +44,11 @@ const Youtube = () => {
               desc: "Promoting fitness and sports participation across the nation.",
               border: "border-orange-500",
             },
+            {
+              name: "FIT-INDIA",
+              desc: "Promoting fitness and sports participation across the nation.",
+              border: "border-orange-500",
+            },
           ].map((item, index) => (
             <div
               key={index}
@@ -60,9 +65,9 @@ const Youtube = () => {
         </div>
 
         <div className="mt-6 flex justify-center md:justify-start">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-bold w-full sm:w-auto transition">
+          {/* <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-bold w-full sm:w-auto transition">
             VIEW ALL APPROVALS
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -79,4 +84,4 @@ const Youtube = () => {
   );
 };
 
-export default Youtube;
+export default Map;
